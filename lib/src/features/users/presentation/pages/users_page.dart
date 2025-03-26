@@ -4,6 +4,7 @@ import 'package:task/src/features/users/presentation/manager/fetch_all_users_con
 import 'package:task/src/features/users/presentation/manager/fetch_user_details_controller.dart';
 import 'package:task/src/features/users/presentation/widgets/list/list_card_user.dart';
 import 'package:task/src/shared/presentation/builders/data_status_builder.dart';
+import 'package:task/src/shared/presentation/text/custom_text.dart';
 
 import '../../../../shared/presentation/loading/pagination_loading.dart';
 
@@ -18,7 +19,11 @@ class UsersPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All Users'),
+        title: const CustomText(
+          'All Users',
+          fontSize: 18,
+        ),
+        centerTitle: true,
       ),
       body: GetBuilder<FetchAllUsersController>(
         builder: (cnt) {

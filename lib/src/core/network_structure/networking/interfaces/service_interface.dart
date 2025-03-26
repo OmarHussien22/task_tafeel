@@ -2,8 +2,7 @@ import 'package:http/http.dart' as http;
 import 'package:task/src/core/network_structure/Constants/exception_constants.dart';
 import 'package:task/src/core/network_structure/Exceptions/failure.dart';
 import 'package:task/src/core/network_structure/api_names.dart';
-import 'package:task/src/core/network_structure/http_service/methods/http_get.dart';
-import 'package:task/src/core/network_structure/http_service/methods/http_post.dart';
+import 'package:task/src/core/network_structure/http_service/http_service.dart';
 import 'package:task/src/core/network_structure/networking/interfaces/service_caller.dart';
 import 'package:task/src/core/network_structure/params/params.dart';
 
@@ -39,13 +38,13 @@ abstract class ServicesInterface with ApiNames implements ServiceCaller {
     try {
       switch (type) {
         case CrudType.post:
-          response = await HttpPost.instance.post(
+          response = await HttpService.instance.post(
             url: Uri.parse(url),
             body: params?.toJson() ?? {},
           );
           break;
         case CrudType.get:
-          response = await HttpGet.instance.get(
+          response = await HttpService.instance.get(
             url: Uri.parse(url),
             queryParams: params?.toJson(),
           );

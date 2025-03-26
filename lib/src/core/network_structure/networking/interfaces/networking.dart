@@ -7,13 +7,13 @@ abstract class Networking<R, E> with ApiNames {
   void init();
 
   Future<R?> get({
-    required String url,
+    required Uri url,
     Map<String, String>? headers,
     Map<String, dynamic>? queryParams,
     bool auth = false,
   });
   Future<R?> post({
-    required String url,
+    required Uri url,
     Map<String, String>? headers,
     Map<String, dynamic>? body,
     bool auth = false,

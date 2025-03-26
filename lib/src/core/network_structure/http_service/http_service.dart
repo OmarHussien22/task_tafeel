@@ -24,13 +24,13 @@ class HttpService extends Networking<http.Response, Exception> {
 
   @override
   Future<http.Response?> get({
-    required String url,
+    required Uri url,
     Map<String, String>? headers,
     Map<String, dynamic>? queryParams,
     bool auth = false,
   }) async {
     try {
-      final uri = Uri.parse(url).replace(queryParameters: queryParams);
+      final uri = url.replace(queryParameters: queryParams);
       final response =
           await _get.get(url: uri, headers: headers, queryParams: queryParams);
       if (response == null) {
@@ -44,16 +44,17 @@ class HttpService extends Networking<http.Response, Exception> {
 
   @override
   Future<http.Response?> post({
-    required String url,
+    required Uri url,
     Map<String, String>? headers,
     Map<String, dynamic>? body,
     bool auth = false,
   }) async {
     try {
       final response = await _post.post(
-        url: Uri.parse(url),
+        url: url,
         headers: headers,
         body: body,
+        auth: auth,
       );
 
       if (response == null) {

@@ -4,6 +4,8 @@ import 'package:task/src/features/users/domain/entities/users_entity.dart';
 import 'package:task/src/features/users/presentation/widgets/crads/card_title.dart';
 import 'package:task/src/shared/presentation/images/image_network.dart';
 
+import '../../../../shared/presentation/text/custom_text.dart';
+
 class UserDetailsPage extends StatelessWidget {
   final UsersEntity user;
   const UserDetailsPage({super.key, required this.user});
@@ -13,7 +15,10 @@ class UserDetailsPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('User Details'),
+        title: const CustomText(
+          'User Details',
+          fontSize: 18,
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(0.0),
